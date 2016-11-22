@@ -47,13 +47,13 @@ def parse_star_parameters(line, star):
     """
     a = line.split()
     if a[0] == 'Star':
-        star.R = a[1]
+        star.R = float(a[1])
         star.color = a[2]
-        star.m = a[3]
-        star.x = a[4]
-        star.y = a[5]
-        star.Vx = a[6]
-        star.Vy = a[7]
+        star.m = float(a[3])
+        star.x = float(a[4])
+        star.y = float(a[5])
+        star.Vx = float(a[6])
+        star.Vy = float(a[7])
 
 
 def parse_planet_parameters(line, planet):
@@ -73,13 +73,13 @@ def parse_planet_parameters(line, planet):
     """
     a = line.split()
     if a[0] == 'Planet':
-        planet.R = a[1]
+        planet.R = float(a[1])
         planet.color = a[2]
-        planet.m = a[3]
-        planet.x = a[4]
-        planet.y = a[5]
-        planet.Vx = a[6]
-        planet.Vy = a[7]
+        planet.m = float(a[3])
+        planet.x = float(a[4])
+        planet.y = float(a[5])
+        planet.Vx = float(a[6])
+        planet.Vy = float(a[7])
 
 
 def write_space_objects_data_to_file(output_filename, space_objects):
@@ -95,10 +95,9 @@ def write_space_objects_data_to_file(output_filename, space_objects):
     """
     with open(output_filename, 'w') as out_file:
         for obj in space_objects:
-            print(out_file, "%s %d %s %f" % ('1', 2, '3', 4.5))
-            # FIXME: should store real values
+            print(out_file,obj.type,'',obj.R,'',obj.color,'',obj.m,'',obj.x,'',obj.y,'',obj.Vx,'',obj.Vy)
 
-# FIXME: хорошо бы ещё сделать функцию, сохранающую статистику в заданный файл...
+
 
 if __name__ == "__main__":
     print("This module is not for direct call!")
